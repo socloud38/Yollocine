@@ -20,5 +20,10 @@
   "homepage": "https://gitlab.com/guillaume.buisson.simplon/allocin-clone#readme",
   "dependencies": {
     "uikit": "^3.5.5"
+  },
+  "devDependencies": {
+    "eslint": "^7.5.0",
+    "stylelint": "^13.6.1",
+    "stylelint-config-standard": "^20.0.0"
   }
 }
