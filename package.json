@@ -1,0 +1,24 @@
+{
+  "name": "allocin-clone",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "sass --watch assets/scss/style-dev.scss:assets/css/style-prod.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/guillaume.buisson.simplon/allocin-clone.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/guillaume.buisson.simplon/allocin-clone/issues"
+  },
+  "homepage": "https://gitlab.com/guillaume.buisson.simplon/allocin-clone#readme",
+  "dependencies": {
+    "uikit": "^3.5.5"
+  }
+}
