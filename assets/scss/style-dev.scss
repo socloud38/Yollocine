@@ -1,1 +1,45 @@
 @import '../../node_modules/uikit/dist/css/uikit.css';
+
+$white: white;
+$primarybrown: rgb(187, 100, 0);
+$secondarybrown: rgb(131, 70, 1);
+$brown3: rgb(78, 42, 0);
+
+//css header
+.my-header 
+{
+    padding: 50px;
+    background-image: url('../imgs/fond-cinema.jpg');
+    background-position: center;
+    background-size: cover;
+}
+
+//css title
+.my-title
+{
+    font-size: 70px;
+    font-weight: bold;
+    color: $white;
+}
+
+//css my search input
+#my-input
+{
+    transition: 0.7s;
+    width: 50%;
+    text-align: center;
+    color: $white;
+    background-color: $primarybrown;
+    border: 2px solid $white;
+    border-radius: 30px;
+
+    &:hover
+    {
+        background-color: $secondarybrown;
+    }
+
+    &:focus
+    {
+        background-color: $brown3;
+    }
+}

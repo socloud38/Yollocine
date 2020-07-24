@@ -1,12 +1,26 @@
-/* @import '../../key.js'; */
+let key = mykey;
+let myinput = document.getElementById('my-input');
+let movielist = document.getElementById('my-movie-list');
 
-const url = 'http://api.themoviedb.org/3/person/51576/movie_credits?api_key=e05c3a1077bd3e7c5bf305329f6c2d9a';
-
-fetch(url)
-.then(function(response)
+myinput.addEventListener('keyup', (e) => 
 {
-    return response.json();
+        findmovie(`https://api.themoviedb.org/3/search/movie?api_key=${key}&language=en-US&page=1&include_adult=false&query=${myinput.value}`)
+        return myinput.value;
 })
-.then(function(transformation){
-    console.log(transformation);
-})
+
+function findmovie(url)
+{
+    fetch(url)
+        .then(function(response)
+        {
+            return response.json();
+        })
+        .then(function(transformation){
+            console.log(transformation);
+        })
+}
+
+function addlistmovie()
+{
+    
+}

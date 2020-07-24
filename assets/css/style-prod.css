@@ -1,3 +1,31 @@
 @import '../../node_modules/uikit/dist/css/uikit.css';
+.my-header {
+  padding: 50px;
+  background-image: url("../imgs/fond-cinema.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+.my-title {
+  font-size: 70px;
+  font-weight: bold;
+  color: white;
+}
+
+#my-input {
+  transition: 0.7s;
+  width: 50%;
+  text-align: center;
+  color: white;
+  background-color: #bb6400;
+  border: 2px solid white;
+  border-radius: 30px;
+}
+#my-input:hover {
+  background-color: #834601;
+}
+#my-input:focus {
+  background-color: #4e2a00;
+}
 
 /*# sourceMappingURL=style-prod.css.map */

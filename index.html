@@ -1,20 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>AloCiné</title>
 
     <link rel="stylesheet" href="assets/css/style-prod.css">
     <script src="node_modules/uikit/dist/js/uikit.min.js"></script>
     <script src="node_modules/uikit/dist/js/uikit-icons.min.js"></script>
-</head>
+    </head>
 <body>
-    <form action="">
-        <div id="movielist"></div>
-    </form>
+    <div class="uk-flex uk-flex-column uk-flex-middle my-header">
+        <div class="uk-animation-toggle">
+            <h1 class="my-title uk-animation-shake uk-animation-reverse">AlloCiné</h1>
+        </div>
+            <input id="my-input" class="uk-input" type="text">
+            <div id="my-movie-list"></div>
+    </div>
     
 
+    <script src="key.js"></script>
     <script src="assets/js/script.js"></script>
 </body>
 </html>
