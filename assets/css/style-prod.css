@@ -1,16 +1,14 @@
-@import '../../node_modules/uikit/dist/css/uikit.css';
+@import url(../../node_modules/uikit/dist/css/uikit.css);
 .my-header {
   padding: 50px;
   background-image: url("../imgs/fond-cinema.jpg");
   background-position: center;
-  background-size: cover;
-}
+  background-size: cover; }
 
 .my-title {
   font-size: 70px;
   font-weight: bold;
-  color: white;
-}
+  color: white; }
 
 #my-input {
   transition: 0.7s;
@@ -19,13 +17,26 @@
   color: white;
   background-color: #bb6400;
   border: 2px solid white;
-  border-radius: 30px;
-}
-#my-input:hover {
-  background-color: #834601;
-}
-#my-input:focus {
-  background-color: #4e2a00;
-}
+  border-radius: 30px; }
+  #my-input:hover {
+    background-color: #834601; }
+  #my-input:focus {
+    background-color: #4e2a00; }
+
+.movie-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+  .movie-list div {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px 0px 0px 0px;
+    background-color: white;
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+    border-left: 1px solid black; }
 
 /*# sourceMappingURL=style-prod.css.map */
