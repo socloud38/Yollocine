@@ -1,8 +1,7 @@
 # AlloCinéClone
 
-##npm :
-
-*uikit
-*eslint
-*stylelint
+## npm :
+* uikit
+* eslint
+* stylelint
 
