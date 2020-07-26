@@ -27,9 +27,15 @@ const findmovie = (url) =>
 const addlistmovie = (myjson) =>
 {
     for (let i = 0; i < myjson.results.length; i++) {
-        const element = myjson.results[i];
         let mytitle = document.createElement('div');
         mytitle.innerHTML = `<p>${myjson.results[i].title}</p>`;
+        movielist.append(mytitle);
+    }
+
+    if(myjson.results.length <= 0)
+    {
+        let mytitle = document.createElement('div');
+        mytitle.innerHTML = `<p>Aucun resultats trouvé...</p>`;
         movielist.append(mytitle);
     }
 }
