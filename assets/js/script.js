@@ -6,7 +6,6 @@ let bodymovie = document.getElementById('body-movies');
 let mypopularlist = document.getElementById('my-popular-list');
 
 document.addEventListener('click', e => {
-    console.log(e.target.id);
     localStorage.setItem('id', e.target.id);
 })
 
@@ -66,7 +65,7 @@ const addlistmovie = (myjson) =>
         let myjsonsliced = myjson.results.slice(0, 3);
         for (let i = 0; i < myjsonsliced.length; i++) {
             let mytitle = document.createElement('div');
-            mytitle.innerHTML = `<a id='${myjsonsliced[i].id}' href="produit.html"><img alt="" src="https://image.tmdb.org/t/p/w500/${myjsonsliced[i].poster_path}"></img> <p>${myjsonsliced[i].title}</p></a>`;
+            mytitle.innerHTML = `<a id='${myjsonsliced[i].id}' href="produit.html"><img id='${myjsonsliced[i].id}' alt="" src="https://image.tmdb.org/t/p/w500/${myjsonsliced[i].poster_path}"></img> <p id='${myjsonsliced[i].id}'>${myjsonsliced[i].title}</p></a>`;
             movielist.append(mytitle);
         }
 

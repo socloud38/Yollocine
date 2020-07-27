@@ -190,3 +190,31 @@ header
             }
         }
 }
+
+//css page produit
+.movietxt
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.3);
+
+    h1 
+    {
+        font-size: 50px;
+        color: $white;
+    }
+
+    p 
+    {
+        color: $white;
+    }
+
+    #status 
+    {
+        color: green;
+        font-size: 20px;
+        font-weight: 900;
+    }
+}

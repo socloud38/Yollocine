@@ -118,4 +118,20 @@ header {
     #body-movies a:hover {
       background-color: #4e2a00; }
 
+.movietxt {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.3); }
+  .movietxt h1 {
+    font-size: 50px;
+    color: white; }
+  .movietxt p {
+    color: white; }
+  .movietxt #status {
+    color: green;
+    font-size: 20px;
+    font-weight: 900; }
+
 /*# sourceMappingURL=style-prod.css.map */
