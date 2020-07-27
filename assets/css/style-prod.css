@@ -1,20 +1,21 @@
-@import '../../node_modules/uikit/dist/css/uikit.css';
+@import url(../../node_modules/uikit/dist/css/uikit.css);
 body {
-  background-color: #bb6400;
-}
+  height: 100vh;
+  background-color: #834601; }
+
+header {
+  border-bottom: 3px solid #4e2a00; }
 
 .my-header {
   padding: 50px;
   background-color: #834601;
   background-position: center;
-  background-size: cover;
-}
+  background-size: cover; }
 
 .my-title {
   font-size: 70px;
   font-weight: bold;
-  color: white;
-}
+  color: white; }
 
 #my-input {
   transition: 0.7s;
@@ -23,74 +24,98 @@ body {
   color: white;
   background-color: #bb6400;
   border: 2px solid white;
-  border-radius: 30px;
-}
-#my-input:hover {
-  background-color: #834601;
-}
-#my-input:focus {
-  background-color: #4e2a00;
-}
+  border-radius: 30px; }
+  #my-input:hover {
+    background-color: #834601; }
+  #my-input:focus {
+    background-color: #4e2a00; }
+  #my-input::placeholder {
+    color: white; }
 
 .my-div-rela {
-  position: relative;
-}
+  width: 350px;
+  position: relative; }
 
 .movie-list {
   position: absolute;
   left: 0;
-  top: 3rem;
-  z-index: 99;
+  top: 2.5rem;
+  z-index: 1;
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-}
-.movie-list div {
-  width: 100%;
-  margin: 0px;
-  color: white;
-  background-color: #bb6400;
-  border-bottom: 1px solid black;
-  border-right: 1px solid black;
-  border-left: 1px solid black;
-}
-.movie-list div img {
-  width: 50px;
-  height: 70px;
-}
-.movie-list div a {
-  width: 92%;
-  padding: 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  text-decoration: none;
-  color: white;
-}
-.movie-list div a:hover {
-  background-color: #4e2a00;
-}
+  align-items: center; }
+  .movie-list div {
+    width: 100%;
+    margin: 0px;
+    color: white;
+    background-color: #bb6400;
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+    border-left: 1px solid black; }
+    .movie-list div img {
+      width: 50px;
+      height: 70px; }
+    .movie-list div a {
+      width: 95%;
+      padding: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      text-decoration: none;
+      color: white; }
+      .movie-list div a:hover {
+        background-color: #4e2a00; }
+
+.my-h2 {
+  margin-top: 0px;
+  font-size: 50px;
+  color: white; }
+
+.my-carou {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: white; }
+  .my-carou svg {
+    padding: 5px;
+    width: 48px;
+    height: 48px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 100%;
+    color: black; }
 
 #body-movies {
   margin-top: 5px;
-}
-#body-movies div {
-  padding: 15px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  color: white;
-  background-color: #bb6400;
-  border-bottom: 2px solid white;
-}
-#body-movies p {
-  margin-left: 15px;
-}
-#body-movies img {
-  width: 100px;
-  height: 150px;
-}
+  background-color: #834601; }
+  #body-movies div {
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    color: white;
+    border-bottom: 2px solid white; }
+    #body-movies div div {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      border: none; }
+      #body-movies div div h1 {
+        color: white; }
+  #body-movies p {
+    margin-left: 15px; }
+  #body-movies img {
+    width: 200px;
+    height: 300px; }
+  #body-movies a {
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white; }
+    #body-movies a:hover {
+      background-color: #4e2a00; }
 
 /*# sourceMappingURL=style-prod.css.map */
