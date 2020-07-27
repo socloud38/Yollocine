@@ -5,11 +5,16 @@ $primarybrown: rgb(187, 100, 0);
 $secondarybrown: rgb(131, 70, 1);
 $brown3: rgb(78, 42, 0);
 
+body 
+{
+    background-color: $primarybrown;
+}
+
 //css header
 .my-header 
 {
     padding: 50px;
-    background-image: url('../imgs/fond-cinema.jpg');
+    background-color: $secondarybrown;;
     background-position: center;
     background-size: cover;
 }
@@ -26,7 +31,7 @@ $brown3: rgb(78, 42, 0);
 #my-input
 {
     transition: 0.7s;
-    width: 50%;
+    width: 100%;
     text-align: center;
     color: $white;
     background-color: $primarybrown;
@@ -44,9 +49,19 @@ $brown3: rgb(78, 42, 0);
     }
 }
 
+.my-div-rela
+{
+    position: relative;
+}
+
 //css list movie
 .movie-list
 {
+    position: absolute;
+    left: 0;
+    top: 3rem;
+    z-index: 99;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -54,14 +69,60 @@ $brown3: rgb(78, 42, 0);
 
     div 
     {
-        width: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: 5px 0px 0px 0px;
-        background-color: white;
+        width: 100%;
+        margin: 0px;
+        color: $white;
+        background-color: $primarybrown;
         border-bottom: 1px solid black;
         border-right: 1px solid black;
         border-left: 1px solid black;
+
+        img 
+        {
+            width: 50px;
+            height: 70px;
+        }
+
+        a 
+        {
+            width: 92%;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-decoration: none;
+            color: $white;
+            &:hover 
+            {
+                background-color: $brown3;
+            }
+        }
+    }
+}
+
+#body-movies 
+{
+    margin-top: 5px;
+
+    div 
+    {
+        padding: 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: $white;
+        background-color: $primarybrown;
+        border-bottom: 2px solid $white;
+    }
+
+    p 
+    {
+        margin-left: 15px;
+    }
+
+    img 
+    {
+        width: 100px;
+        height: 150px;
     }
 }
