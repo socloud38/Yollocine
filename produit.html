@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>nom du film</title>
+    <title id="my-nav-title"></title>
 
     <link rel="stylesheet" href="assets/css/style-prod.css">
     <script src="node_modules/uikit/dist/js/uikit.min.js"></script>
@@ -11,13 +11,17 @@
     </head>
 <body>
 
-    <div class="uk-flex">
-        <img id="my-img" src="" alt="">
-        <div class="movietxt">
-            <h1 id="my-title"></h1>
-            <p id="status"></p>
-            <p id="date"></p>
-            <p id="synopsis" class="uk-text-center"></p>
+    <div class="row">
+        <div class="col-12 col-md-6">
+            <img id="my-img" src="" alt="">
+        </div>
+        <div class="col-12 col-md-6 movietxt">
+            <h1 id="my-title" class="uk-text-left"></h1>
+            <p id="genre"></p>
+            <p id="runtime"></p>
+            <p id="status" class="uk-text-left"></p>
+            <p id="date" class="uk-text-left"></p>
+            <p id="synopsis" class="uk-text-left"></p>
         </div>
     </div>
 

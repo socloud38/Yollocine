@@ -3,6 +3,7 @@ import {mykey} from '../../key.js';
 let myinput = document.getElementById('my-input');
 let movielist = document.getElementById('my-movie-list');
 let bodymovie = document.getElementById('body-movies');
+let mypopularbody = document.getElementById('my-popular-body');
 let mypopularlist = document.getElementById('my-popular-list');
 
 document.addEventListener('click', e => {
@@ -16,7 +17,16 @@ myinput.addEventListener('keyup', (e) =>
     refreshlist();
     if(myinput.value.length > 0)
     {
-        findmovie(`https://api.themoviedb.org/3/search/movie?api_key=${mykey}&language=en-US&page=1&include_adult=false&query=${myinput.value}`);
+        findmovie(`https://api.themoviedb.org/3/search/movie?api_key=${mykey}&language=fr&page=1&include_adult=false&query=${myinput.value}`);
+    }
+
+    if(myinput.value != '')
+    {
+        mypopularbody.style.display = 'none';
+    }
+    else 
+    {
+        mypopularbody.style.display = 'inline-block';
     }
 })
 
@@ -45,7 +55,7 @@ const popularmovies = (url) =>
         })
 }
 
-popularmovies(`https://api.themoviedb.org/3/movie/popular?api_key=${mykey}&language=en-US&page=1`);
+popularmovies(`https://api.themoviedb.org/3/movie/popular?api_key=${mykey}&language=fr&page=1`);
 
 const addpopularmovie = (myjson) => {
 
@@ -77,7 +87,8 @@ const addlistmovie = (myjson) =>
                 {
                     let newoverview = myjson.results[i].overview.slice(0, 300)
                     let mymovies = document.createElement('div');
-                    mymovies.innerHTML = `<a id='${myjson.results[i].id}' href="produit.html"><img id='${myjson.results[i].id}' alt="" src="https://image.tmdb.org/t/p/w500/${myjson.results[i].poster_path}"></img> <div id='${myjson.results[i].id}'><h1 id='${myjson.results[i].id}'>${myjson.results[i].title} :</h1><p id='${myjson.results[i].id}'>${myjson.results[i].release_date}</p><p id='${myjson.results[i].id}'>${newoverview}...</p></div></a>`;                    bodymovie.append(mymovies);
+                    mymovies.innerHTML = `<a id='${myjson.results[i].id}' href="produit.html"><img id='${myjson.results[i].id}' alt="" src="https://image.tmdb.org/t/p/w500/${myjson.results[i].poster_path}"></img> <div id='${myjson.results[i].id}'><h1 id='${myjson.results[i].id}'>${myjson.results[i].title} :</h1><p id='${myjson.results[i].id}'>${myjson.results[i].release_date}</p><p id='${myjson.results[i].id}'>${newoverview}...</p></div></a>`;
+                    bodymovie.append(mymovies);
                 }
                 else 
                 {
@@ -96,7 +107,6 @@ const addlistmovie = (myjson) =>
         bodymovie.append(mytitle);
     }
 }
-
 
 const refreshlist = () => 
 {

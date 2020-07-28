@@ -1,4 +1,5 @@
 @import '../../node_modules/uikit/dist/css/uikit.css';
+@import '../../node_modules/bootstrap/scss/bootstrap.scss';
 
 $white: white;
 $primarybrown: rgb(187, 100, 0);
@@ -7,7 +8,7 @@ $brown3: rgb(78, 42, 0);
 
 body 
 {
-    height: 100vh;
+    height: 800px;
     background-color: $secondarybrown;
 }
 
@@ -19,7 +20,7 @@ header
 //css header
 .my-header 
 {
-    padding: 50px;
+    padding: 50px 50px 25px 50px;
     background-color: $secondarybrown;;
     background-position: center;
     background-size: cover;
@@ -122,10 +123,7 @@ header
 //css carou
 .my-carou
 {
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: $white;
+    width: 100%;
 
     svg 
     {
@@ -192,22 +190,31 @@ header
 }
 
 //css page produit
+
+#my-img 
+{
+    width: 100%;
+}
+
 .movietxt
 {
+    margin-left: 0px;
     display: flex;
     flex-direction: column;
-    align-items: center;
     width: 100%;
-    background-color: rgba(255, 255, 255, 0.3);
+    background-color: $primarybrown;
 
     h1 
     {
+        width: 90%;
         font-size: 50px;
         color: $white;
     }
 
     p 
     {
+        width: 90%;
+        margin-left: 10px;
         color: $white;
     }
 
