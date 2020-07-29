@@ -1,75 +1,75 @@
 @import '../../node_modules/uikit/dist/css/uikit.css';
 @import '../../node_modules/bootstrap/scss/bootstrap.scss';
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
 
 $white: white;
-$primarybrown: rgb(187, 100, 0);
-$secondarybrown: rgb(131, 70, 1);
-$brown3: rgb(78, 42, 0);
+$primarybrown: black;
+$secondarybrown: rgba(255, 255, 255, 0.2);
+$brown3: rgba(255, 255, 255, 0.3);
 
-body 
-{
-    height: 800px;
-    background-color: $secondarybrown;
-}
-
-header 
-{
-    border-bottom: 3px solid $brown3;
+body {
+  height: 100vh;
+  background-color: $primarybrown;
+  font-family: 'Montserrat', sans-serif;
 }
 
 //css header
-.my-header 
-{
-    padding: 50px 50px 25px 50px;
-    background-color: $secondarybrown;;
-    background-position: center;
-    background-size: cover;
+.my-header {
+  padding: 50px 50px 25px 50px;
+  background-color: rgba(255, 255, 255, 0.2);
+  background-position: center;
+  background-size: cover;
 }
 
 //css title
-.my-title
-{
-    font-size: 70px;
-    font-weight: bold;
-    color: $white;
+.my-title {
+  font-size: 70px;
+  font-weight: bold;
+  color: $white;
 }
 
 //css my search input
-#my-input
-{
-    transition: 0.7s;
-    width: 100%;
-    text-align: center;
+#my-input {
+  transition: 0.7s;
+  width: 100%;
+  text-align: center;
+  color: $white;
+  background-color: $primarybrown;
+  border: 2px solid $white;
+  border-radius: 30px;
+
+  &:hover {
+    background-color: $secondarybrown;
+  }
+
+  &:focus {
+    background-color: $brown3;
+  }
+
+  &::placeholder {
     color: $white;
-    background-color: $primarybrown;
-    border: 2px solid $white;
-    border-radius: 30px;
-
-    &:hover
-    {
-        background-color: $secondarybrown;
-    }
-
-    &:focus
-    {
-        background-color: $brown3;
-    }
-
-    &::placeholder
-    {
-        color: $white;
-    }
+  }
 }
 
-.my-div-rela
-{
-    width: 350px;
-    position: relative;
+.my-div-rela {
+  width: 350px;
+  position: relative;
 }
 
-//css list movie
-.movie-list
-{
+//css carou
+.my-carou {
+  width: 100%;
+
+  img {
+    filter: grayscale(70%);
+
+    &:hover {
+      filter: none;
+    }
+  }
+
+  //css list movie
+  .movie-list {
     position: absolute;
     left: 0;
     top: 2.5rem;
@@ -80,148 +80,154 @@ header
     justify-content: center;
     align-items: center;
 
-    div 
-    {
+    div {
+      width: 100%;
+      margin: 0;
+      color: $white;
+      background-color: $primarybrown;
+      border-bottom: 1px solid black;
+      border-right: 1px solid black;
+      border-left: 1px solid black;
+
+      img {
+        width: 50px;
+        height: 70px;
+      }
+
+      a {
         width: 100%;
-        margin: 0px;
+        padding: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        text-decoration: none;
         color: $white;
-        background-color: $primarybrown;
-        border-bottom: 1px solid black;
-        border-right: 1px solid black;
-        border-left: 1px solid black;
+        filter: grayscale(80%);
 
-        img 
-        {
-            width: 50px;
-            height: 70px;
+        &:hover {
+          background-color: $brown3;
+          filter: none;
         }
-
-        a 
-        {
-            width: 95%;
-            padding: 10px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            text-decoration: none;
-            color: $white;
-            &:hover 
-            {
-                background-color: $brown3;
-            }
-        }
+      }
     }
-}
+  }
 
-.my-h2 
-{
-    margin-top: 0px;
+  .my-h2 {
+    margin-top: 0;
     font-size: 50px;
     color: $white;
+  }
+
+  svg {
+    padding: 5px;
+    width: 48px;
+    height: 48px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 100%;
+    color: black;
+  }
 }
 
-//css carou
-.my-carou
-{
-    width: 100%;
+.movietxt {
+  margin-left: 0;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: rgba($color: #000, $alpha: 0.6);
 
-    svg 
-    {
-        padding: 5px;
-        width: 48px;
-        height: 48px;
-        background-color: rgba(255, 255, 255, 0.5);
-        border-radius: 100%;
-        color: black;
+  h1 {
+    width: 90%;
+    font-size: 50px;
+    color: $white;
+  }
+
+  p {
+    width: 90%;
+    margin-left: 10px;
+    color: $white;
+  }
+
+  #status {
+    color: green;
+    font-size: 20px;
+    font-weight: 900;
+  }
+}
+
+#body-movies {
+  width: 100%;
+  margin-top: 5px;
+  background-color: $primarybrown;
+  display: flex;
+  justify-content: center;
+
+  a {
+    min-width: 250px;
+    max-width: 250px;
+    position: relative;
+    padding: 15px;
+    margin-top: 40px;
+    margin-left: 20px;
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+    border: 2px solid $primarybrown;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    color: $white;
+    text-decoration: none;
+    border-bottom: 2px solid $white;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    filter: grayscale(100%);
+
+    &:hover {
+      filter: none;
     }
-}
 
-#body-movies 
-{
-    margin-top: 5px;
-    background-color: $secondarybrown;
+    span {
+      width: 250px;
+      height: 400px;
+    }
 
-    div 
-    {
-        padding: 15px;
-        display: flex;
-        align-items: center;
+    div {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      min-height: 60px;
+      border: none;
+      position: absolute;
+      left: 0;
+      top: 0;
+      background-color: black;
+
+      h1 {
+        text-align: center;
+        font-size: 20px;
         color: $white;
-        border-bottom: 2px solid $white;
-        div 
-        {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            justify-content: flex-start;
-            border: none;
-
-            h1 
-            {
-                color: $white;
-            }
-        }
+      }
     }
+  }
 
-    p 
-    {
-        margin-left: 15px;
-    }
+  p {
+    margin-left: 15px;
+  }
 
-    img 
-    {
-        width: 200px;
-        height: 300px;
-    }
-
-    a 
-        {
-            width: 100%;
-            padding: 10px;
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-            color: $white;
-            &:hover 
-            {
-                background-color: $brown3;
-            }
-        }
+  img {
+    width: 200px;
+    height: 300px;
+  }
 }
 
 //css page produit
-
-#my-img 
-{
-    width: 100%;
+#body-txt {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
-.movietxt
-{
-    margin-left: 0px;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    background-color: $primarybrown;
-
-    h1 
-    {
-        width: 90%;
-        font-size: 50px;
-        color: $white;
-    }
-
-    p 
-    {
-        width: 90%;
-        margin-left: 10px;
-        color: $white;
-    }
-
-    #status 
-    {
-        color: green;
-        font-size: 20px;
-        font-weight: 900;
-    }
+#my-img {
+  width: 100%;
 }
