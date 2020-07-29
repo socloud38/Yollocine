@@ -7802,8 +7802,10 @@ a.text-dark:hover, a.text-dark:focus {
   .table .thead-dark th {
     color: inherit;
     border-color: #dee2e6; } }
+html {
+  background-color: black; }
+
 body {
-  height: 100vh;
   background-color: black;
   font-family: 'Montserrat', sans-serif; }
 
@@ -7814,7 +7816,7 @@ body {
   background-size: cover; }
 
 .my-title {
-  font-size: 70px;
+  font-size: 90px;
   font-weight: bold;
   color: white; }
 
@@ -7837,56 +7839,56 @@ body {
   width: 350px;
   position: relative; }
 
-.my-carou {
-  width: 100%; }
-  .my-carou img {
-    filter: grayscale(70%); }
-    .my-carou img:hover {
-      filter: none; }
-  .my-carou .movie-list {
-    position: absolute;
-    left: 0;
-    top: 2.5rem;
-    z-index: 1;
+.movie-list {
+  position: absolute;
+  left: 0;
+  top: 2.5rem;
+  z-index: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+  .movie-list div {
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center; }
-    .my-carou .movie-list div {
+    margin: 0;
+    color: white;
+    background-color: black;
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+    border-left: 1px solid black; }
+    .movie-list div img {
+      width: 50px;
+      height: 70px; }
+    .movie-list div a {
       width: 100%;
-      margin: 0;
+      padding: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      text-decoration: none;
       color: white;
-      background-color: black;
-      border-bottom: 1px solid black;
-      border-right: 1px solid black;
-      border-left: 1px solid black; }
-      .my-carou .movie-list div img {
-        width: 50px;
-        height: 70px; }
-      .my-carou .movie-list div a {
-        width: 100%;
-        padding: 10px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        text-decoration: none;
-        color: white;
-        filter: grayscale(80%); }
-        .my-carou .movie-list div a:hover {
-          background-color: rgba(255, 255, 255, 0.3);
-          filter: none; }
-  .my-carou .my-h2 {
-    margin-top: 0;
-    font-size: 50px;
-    color: white; }
-  .my-carou svg {
-    padding: 5px;
-    width: 48px;
-    height: 48px;
-    background-color: rgba(255, 255, 255, 0.5);
-    border-radius: 100%;
-    color: black; }
+      filter: grayscale(80%); }
+      .movie-list div a:hover {
+        background-color: rgba(255, 255, 255, 0.3);
+        filter: none; }
+
+.my-h2 {
+  margin-top: 0;
+  font-size: 50px;
+  color: white; }
+
+.my-carou img {
+  filter: grayscale(70%); }
+  .my-carou img:hover {
+    filter: none; }
+.my-carou svg {
+  padding: 5px;
+  width: 48px;
+  height: 48px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 100%;
+  color: black; }
 
 .movietxt {
   margin-left: 0;
@@ -7916,6 +7918,7 @@ body {
   #body-movies a {
     min-width: 250px;
     max-width: 250px;
+    min-height: 450px;
     position: relative;
     padding: 15px;
     margin-top: 40px;
@@ -7958,6 +7961,13 @@ body {
   #body-movies img {
     width: 200px;
     height: 300px; }
+
+.my-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 70px 0;
+  background-color: black; }
 
 #body-txt {
   background-repeat: no-repeat;

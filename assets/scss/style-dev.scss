@@ -7,8 +7,11 @@ $primarybrown: black;
 $secondarybrown: rgba(255, 255, 255, 0.2);
 $brown3: rgba(255, 255, 255, 0.3);
 
+html {
+  background-color: $primarybrown;
+}
+
 body {
-  height: 100vh;
   background-color: $primarybrown;
   font-family: 'Montserrat', sans-serif;
 }
@@ -23,7 +26,7 @@ body {
 
 //css title
 .my-title {
-  font-size: 70px;
+  font-size: 90px;
   font-weight: bold;
   color: $white;
 }
@@ -56,66 +59,64 @@ body {
   position: relative;
 }
 
+//css list movie
+.movie-list {
+  position: absolute;
+  left: 0;
+  top: 2.5rem;
+  z-index: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  div {
+    width: 100%;
+    margin: 0;
+    color: $white;
+    background-color: $primarybrown;
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+    border-left: 1px solid black;
+
+    img {
+      width: 50px;
+      height: 70px;
+    }
+
+    a {
+      width: 100%;
+      padding: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      text-decoration: none;
+      color: $white;
+      filter: grayscale(80%);
+
+      &:hover {
+        background-color: $brown3;
+        filter: none;
+      }
+    }
+  }
+}
+
+.my-h2 {
+  margin-top: 0;
+  font-size: 50px;
+  color: $white;
+}
+
 //css carou
 .my-carou {
-  width: 100%;
-
   img {
     filter: grayscale(70%);
 
     &:hover {
       filter: none;
     }
-  }
-
-  //css list movie
-  .movie-list {
-    position: absolute;
-    left: 0;
-    top: 2.5rem;
-    z-index: 1;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    div {
-      width: 100%;
-      margin: 0;
-      color: $white;
-      background-color: $primarybrown;
-      border-bottom: 1px solid black;
-      border-right: 1px solid black;
-      border-left: 1px solid black;
-
-      img {
-        width: 50px;
-        height: 70px;
-      }
-
-      a {
-        width: 100%;
-        padding: 10px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        text-decoration: none;
-        color: $white;
-        filter: grayscale(80%);
-
-        &:hover {
-          background-color: $brown3;
-          filter: none;
-        }
-      }
-    }
-  }
-
-  .my-h2 {
-    margin-top: 0;
-    font-size: 50px;
-    color: $white;
   }
 
   svg {
@@ -164,6 +165,7 @@ body {
   a {
     min-width: 250px;
     max-width: 250px;
+    min-height: 450px;
     position: relative;
     padding: 15px;
     margin-top: 40px;
@@ -219,6 +221,19 @@ body {
     width: 200px;
     height: 300px;
   }
+}
+
+.my-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 70px 0;
+  background-color: $primarybrown;
+}
+
+.my-page
+{
+    
 }
 
 //css page produit
