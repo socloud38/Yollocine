@@ -38,7 +38,7 @@ myinput.addEventListener('keyup', () =>
 	if(myinput.value.length > 0)
 	{
         let myurlmovies = `https://api.themoviedb.org/3/search/movie?api_key=${mykey}&language=fr&page=1&include_adult=false&query=${myinput.value}`;
-        let myurlseries = `https://api.themoviedb.org/3/search/tv?api_key=${mykey}&language=en-US&page=1&query=${myinput.value}&include_adult=false`;
+        let myurlseries = `https://api.themoviedb.org/3/search/tv?api_key=${mykey}&language=fr&page=1&query=${myinput.value}&include_adult=false`;
 
         if(radiomovies.checked)
         {
@@ -130,9 +130,12 @@ const addlistmovie = (myjson) =>
 	{
 		let myjsonsliced = myjson.results.slice(0, 3);
 		for (let i = 0; i < myjsonsliced.length; i++) {
-			let mytitle = document.createElement('div');
-			mytitle.innerHTML = `<a id='${myjsonsliced[i].id}' href="produit.html"><img id='${myjsonsliced[i].id}' alt="" src="https://image.tmdb.org/t/p/original/${myjsonsliced[i].poster_path}"></img> <p id='${myjsonsliced[i].id}'>${myjsonsliced[i].title}</p></a>`;
-			movielist.append(mytitle);
+            if(myjson.results[i].poster_path != null)
+			{
+			    let mytitle = document.createElement('div');
+			    mytitle.innerHTML = `<a id='${myjsonsliced[i].id}' href="produit.html"><img id='${myjsonsliced[i].id}' alt="" src="https://image.tmdb.org/t/p/original/${myjsonsliced[i].poster_path}"></img> <p id='${myjsonsliced[i].id}'>${myjsonsliced[i].title}</p></a>`;
+                movielist.append(mytitle);
+            }
 		}
 
 		for (let i = 0; i < myjson.results.length; i++) {
@@ -181,9 +184,12 @@ const addlistserie = (myjson) =>
 	{
 		let myjsonsliced = myjson.results.slice(0, 3);
 		for (let i = 0; i < myjsonsliced.length; i++) {
-			let mytitle = document.createElement('div');
-			mytitle.innerHTML = `<a id='${myjsonsliced[i].id}' href="produit.html"><img id='${myjsonsliced[i].id}' alt="" src="https://image.tmdb.org/t/p/original/${myjsonsliced[i].poster_path}"></img> <p id='${myjsonsliced[i].id}'>${myjsonsliced[i].name}</p></a>`;
-			movielist.append(mytitle);
+            if(myjson.results[i].poster_path != null)
+			{
+			    let mytitle = document.createElement('div');
+			    mytitle.innerHTML = `<a id='${myjsonsliced[i].id}' href="produit.html"><img id='${myjsonsliced[i].id}' alt="" src="https://image.tmdb.org/t/p/original/${myjsonsliced[i].poster_path}"></img> <p id='${myjsonsliced[i].id}'>${myjsonsliced[i].name}</p></a>`;
+                movielist.append(mytitle);
+            }
 		}
 
 		for (let i = 0; i < myjson.results.length; i++) {
@@ -198,8 +204,8 @@ const addlistserie = (myjson) =>
 				myserie.href = 'produit.html';
 				myserie.style.backgroundImage = `URL('https://image.tmdb.org/t/p/original/${myjson.results[i].poster_path}')`;
 				myserie.innerHTML = `<span id='${myjson.results[i].id}'><div id='${myjson.results[i].id}'><h1 id='${myjson.results[i].id}'>${myjson.results[i].name}(${daterel})</h1></div></span>`;
-				bodymovie.append(myserie);
-			}
+				bodymovie.append(myserie);     
+            }
         }
 	}
 	else if(myjson.results.length <= 0)

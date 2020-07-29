@@ -96,7 +96,7 @@ const datamanageseries = (myjson) => {
 	mybodytxt.style.backgroundImage = `URL(https://image.tmdb.org/t/p/original/${myjson.backdrop_path})`;
 	mynavtitle.innerText = myjson.name;
 	myimg.src = `https://image.tmdb.org/t/p/original/${myjson.poster_path}`;
-	myimg.alt = 'Pas d\'image pour ce film';
+	myimg.alt = 'Pas d\'image pour cette série';
 	mybodyhtml.style.height = myimg.height;
 	mytitle.innerText = myjson.name;
 	mytitle.style.textTransform = 'uppercase';
@@ -118,5 +118,5 @@ const datamanageseries = (myjson) => {
 		myresume.innerText = myjson.overview;
 	}
 	myresume.style.fontSize = '20px';
-	myruntime.innerHTML = `Nombre d'épisodes : <b>${myjson.number_of_episodes}</b>`;
+	myruntime.innerHTML = `Nombre de saisons : <b>${myjson.number_of_seasons}</b> </br> Nombre d'épisodes : <b>${myjson.number_of_episodes}</b>`;
 };
