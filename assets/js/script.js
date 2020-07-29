@@ -6,19 +6,48 @@ let bodymovie = document.getElementById('body-movies');
 let mypopularbody = document.getElementById('my-popular-body');
 let mypopularlist = document.getElementById('my-popular-list');
 let myindexpage = document.getElementById('my-page-index');
+let radiomovies = document.getElementById('radio-movies');
+let radioserie = document.getElementById('radio-series');
+let mytxtcarou = document.getElementById('carou-txt');
+
+let movies = true;
 
 document.addEventListener('click', e => {
-	localStorage.setItem('id', e.target.id);
+    localStorage.setItem('id', e.target.id);
+    if(radioserie.checked)
+    {
+        movies = false;
+        localStorage.setItem('movie', movies);
+    }
+    else
+    {
+        movies = true;
+        localStorage.setItem('movie', movies);
+    }
 });
 
 myinput.value = '';
+radiomovies.checked = true;
+
+let myurlpopularmovie = `https://api.themoviedb.org/3/movie/popular?api_key=${mykey}&language=fr&page=1`;
+let myurlpopularseries = `https://api.themoviedb.org/3/tv/popular?api_key=${mykey}&language=fr&page=1`;
 
 myinput.addEventListener('keyup', () => 
 {
     refreshlist();
 	if(myinput.value.length > 0)
 	{
-		findmovie(`https://api.themoviedb.org/3/search/movie?api_key=${mykey}&language=fr&page=1&include_adult=false&query=${myinput.value}`);
+        let myurlmovies = `https://api.themoviedb.org/3/search/movie?api_key=${mykey}&language=fr&page=1&include_adult=false&query=${myinput.value}`;
+        let myurlseries = `https://api.themoviedb.org/3/search/tv?api_key=${mykey}&language=en-US&page=1&query=${myinput.value}&include_adult=false`;
+
+        if(radiomovies.checked)
+        {
+            findmovie(myurlmovies);
+        }
+        else if(radioserie.checked)
+        {
+            findmovie(myurlseries);
+        }
 	}
 
 	if(myinput.value != '')
@@ -41,8 +70,16 @@ const findmovie = (url) =>
 			return response.json();
 		})
 		.then((transformation) =>{
-			refreshlist();
-			addlistmovie(transformation);
+            console.log(transformation);
+            refreshlist();
+            if(radiomovies.checked)
+            {
+                addlistmovie(transformation);
+            }
+            else 
+            {
+                addlistserie(transformation);
+            }
 		});
 };
 
@@ -53,12 +90,28 @@ const popularmovies = (url) =>
 			return response.json();
 		})
 		.then((transformation) => {
-			console.log(transformation);
-			addpopularmovie(transformation);
+            console.log(transformation);
+            addpopularmovie(transformation);
 		});
 };
 
-popularmovies(`https://api.themoviedb.org/3/movie/popular?api_key=${mykey}&language=fr&page=1`);
+radiomovies.addEventListener('click', () => {
+    mytxtcarou.innerText = 'Films Populaires :'
+    for (let i = mypopularlist.children.length -1; i >= 0 ; i--) {
+        mypopularlist.removeChild(mypopularlist.children[i]);
+    }
+    popularmovies(myurlpopularmovie);
+})
+
+radioserie.addEventListener('click', () => {
+    mytxtcarou.innerText = 'Séries Populaires :'
+    for (let i = mypopularlist.children.length -1; i >= 0 ; i--) {
+        mypopularlist.removeChild(mypopularlist.children[i]);
+    }
+    popularmovies(myurlpopularseries);
+})
+
+popularmovies(myurlpopularmovie);
 
 const addpopularmovie = (myjson) => {
 
@@ -85,6 +138,7 @@ const addlistmovie = (myjson) =>
 		for (let i = 0; i < myjson.results.length; i++) {
 			if(myjson.results[i].poster_path != null)
 			{
+                let daterel = myjson.results[i].release_date.slice(0,4);
 				let mymovies = document.createElement('a');
 				mymovies.classList.add('col-12');
 				mymovies.classList.add('col-sm-4');
@@ -92,8 +146,59 @@ const addlistmovie = (myjson) =>
 				mymovies.classList.add('col-lg-2');
 				mymovies.href = 'produit.html';
 				mymovies.style.backgroundImage = `URL('https://image.tmdb.org/t/p/original/${myjson.results[i].poster_path}')`;
-				mymovies.innerHTML = `<span id='${myjson.results[i].id}'><div id='${myjson.results[i].id}'><h1 id='${myjson.results[i].id}'>${myjson.results[i].title}(${myjson.results[i].release_date.slice(0,4)})</h1></div></span>`;
+				mymovies.innerHTML = `<span id='${myjson.results[i].id}'><div id='${myjson.results[i].id}'><h1 id='${myjson.results[i].id}'>${myjson.results[i].title}(${daterel})</h1></div></span>`;
 				bodymovie.append(mymovies);
+			}
+        }
+	}
+	else if(myjson.results.length <= 0)
+	{
+		let mytitle = document.createElement('div');
+		mytitle.style.color = 'white';
+		mytitle.style.marginTop = '50px';
+		mytitle.innerHTML = '<p>Aucun resultats trouvés...</p>';
+		movielist.append(mytitle);
+		bodymovie.append(mytitle);
+    }
+    if(p1)
+{
+    for (let i = 0; i < bodymovie.children.length; i++) 
+            {
+                if(i >= 5)
+                {
+                    const elements1 = bodymovie.children[i];
+                    elements1.style.display = 'none';
+                }
+            }
+}
+};
+
+const addlistserie = (myjson) =>
+{
+	refreshlist();
+
+	if(myjson.results.length >= 4)
+	{
+		let myjsonsliced = myjson.results.slice(0, 3);
+		for (let i = 0; i < myjsonsliced.length; i++) {
+			let mytitle = document.createElement('div');
+			mytitle.innerHTML = `<a id='${myjsonsliced[i].id}' href="produit.html"><img id='${myjsonsliced[i].id}' alt="" src="https://image.tmdb.org/t/p/original/${myjsonsliced[i].poster_path}"></img> <p id='${myjsonsliced[i].id}'>${myjsonsliced[i].name}</p></a>`;
+			movielist.append(mytitle);
+		}
+
+		for (let i = 0; i < myjson.results.length; i++) {
+			if(myjson.results[i].poster_path != null)
+			{
+                let daterel = myjson.results[i].first_air_date.slice(0,4);
+				let myserie = document.createElement('a');
+				myserie.classList.add('col-12');
+				myserie.classList.add('col-sm-4');
+				myserie.classList.add('col-md-3');
+				myserie.classList.add('col-lg-2');
+				myserie.href = 'produit.html';
+				myserie.style.backgroundImage = `URL('https://image.tmdb.org/t/p/original/${myjson.results[i].poster_path}')`;
+				myserie.innerHTML = `<span id='${myjson.results[i].id}'><div id='${myjson.results[i].id}'><h1 id='${myjson.results[i].id}'>${myjson.results[i].name}(${daterel})</h1></div></span>`;
+				bodymovie.append(myserie);
 			}
         }
 	}

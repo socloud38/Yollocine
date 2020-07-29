@@ -7810,7 +7810,7 @@ body {
   font-family: 'Montserrat', sans-serif; }
 
 .my-header {
-  padding: 50px 50px 25px 50px;
+  padding: 50px 50px 0px 50px;
   background-color: rgba(255, 255, 255, 0.2);
   background-position: center;
   background-size: cover; }
@@ -7872,6 +7872,18 @@ body {
       .movie-list div a:hover {
         background-color: rgba(255, 255, 255, 0.3);
         filter: none; }
+
+.radio-options {
+  width: 50%;
+  margin: 20px auto 20px auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; }
+  .radio-options input {
+    margin-left: 10px; }
+  .radio-options label {
+    margin: 0px 0px 0px 5px;
+    color: white; }
 
 .my-h2 {
   margin-top: 0;
@@ -7968,6 +7980,9 @@ body {
   justify-content: center;
   padding: 70px 0;
   background-color: black; }
+
+.my-page button {
+  width: 50px; }
 
 #body-txt {
   background-repeat: no-repeat;
