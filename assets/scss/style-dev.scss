@@ -18,17 +18,31 @@ body {
 
 //css header
 .my-header {
+  height: 500px;
   padding: 50px 50px 0 50px;
-  background-color: rgba(255, 255, 255, 0.2);
+  background-image: url('../imgs/WarpTrails2.gif');
   background-position: center;
   background-size: cover;
 }
 
 //css title
 .my-title {
+  margin-top: 80px;
   font-size: 90px;
   font-weight: bold;
   color: $white;
+  opacity: 0;
+  animation-name: opacity;
+  animation-duration: 0.8s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@keyframes opacity
+{
+  from {
+    opacity: 1;
+  }
 }
 
 //css my search input
@@ -304,15 +318,7 @@ body {
   background-size: cover;
   #my-img-div {
     position: relative;
-  }
-  button {
-    position: absolute;
-    top: 15%;
-    right: 10%;
-    background-color: rgba(255, 0, 0, 0);
-    color: $white;
-    border: 1px solid red;
-    border-radius: 15px;
+    transition: 1s;
   }
 
   .my-card {

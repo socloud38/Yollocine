@@ -4,7 +4,6 @@ let mybodytxt = document.getElementById('body-txt');
 let mytxtdiv = document.getElementById('my-txt-div');
 
 let myimgdiv = document.getElementById('my-img-div');
-let mybtnimg = document.getElementById('my-btn-img');
 
 let mynavtitle = document.getElementById('my-nav-title');
 
@@ -131,19 +130,33 @@ const datamanageseries = (myjson) => {
 };
 
 myimg.addEventListener('click', () => {
-	mybtnimg.style.display = 'inline-block';
+	let imgbool = false;
+
 	mytxtdiv.style.display = 'none';
 	myimgdiv.style.width = '50%';
 	myimgdiv.style.height = '100vh';
 	myimgdiv.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
 	myimgdiv.classList.remove('col-12');
 	myimgdiv.classList.remove('col-md-6');
-});
+	myimgdiv.style.transform = ('scale(2)');
 
-mybtnimg.addEventListener('click', () => {
-	mybtnimg.style.display = 'none';
-	mytxtdiv.style.display = '';
-	myimgdiv.style.backgroundColor = '';
-	myimgdiv.classList.add('col-12');
-	myimgdiv.classList.add('col-md-6');
+	setTimeout( () => {
+		imgbool = true;
+	}, 500)
+
+	document.addEventListener('click', e => {
+		if(imgbool === true)
+		{
+			console.log(e.target.id);
+			if(e.target.id != 'my-img');
+			{
+				mytxtdiv.style.display = '';
+				myimgdiv.style.backgroundColor = '';
+				myimgdiv.classList.add('col-12');
+				myimgdiv.classList.add('col-md-6');
+				myimgdiv.style.transform = ('scale(1)');
+				imgbool = false;
+			}
+		}
+	})
 });
