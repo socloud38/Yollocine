@@ -9,21 +9,26 @@ let myindexpage = document.getElementById('my-page-index');
 let radiomovies = document.getElementById('radio-movies');
 let radioserie = document.getElementById('radio-series');
 let mytxtcarou = document.getElementById('carou-txt');
+let pagenumbertxt = document.getElementById('page-number');
+
+let pagenumber = 1;
 
 let movies = true;
 
 document.addEventListener('click', e => {
-    localStorage.setItem('id', e.target.id);
-    if(radioserie.checked)
-    {
-        movies = false;
-        localStorage.setItem('movie', movies);
-    }
-    else
-    {
-        movies = true;
-        localStorage.setItem('movie', movies);
-    }
+	localStorage.setItem('id', e.target.id);
+	console.log(e.target.id);
+
+	if(radioserie.checked)
+	{
+		movies = false;
+		localStorage.setItem('movie', movies);
+	}
+	else
+	{
+		movies = true;
+		localStorage.setItem('movie', movies);
+	}
 });
 
 myinput.value = '';
@@ -34,31 +39,33 @@ let myurlpopularseries = `https://api.themoviedb.org/3/tv/popular?api_key=${myke
 
 myinput.addEventListener('keyup', () => 
 {
-    refreshlist();
+	refreshlist();
+	pagenumber = 1;
+	pagenumbertxt.innerText = pagenumber;
 	if(myinput.value.length > 0)
 	{
-        let myurlmovies = `https://api.themoviedb.org/3/search/movie?api_key=${mykey}&language=fr&page=1&include_adult=false&query=${myinput.value}`;
-        let myurlseries = `https://api.themoviedb.org/3/search/tv?api_key=${mykey}&language=fr&page=1&query=${myinput.value}&include_adult=false`;
+		let myurlmovies = `https://api.themoviedb.org/3/search/movie?api_key=${mykey}&language=fr&page=${pagenumber}&include_adult=false&query=${myinput.value}`;
+		let myurlseries = `https://api.themoviedb.org/3/search/tv?api_key=${mykey}&language=fr&page=${pagenumber}&query=${myinput.value}&include_adult=false`;
 
-        if(radiomovies.checked)
-        {
-            findmovie(myurlmovies);
-        }
-        else if(radioserie.checked)
-        {
-            findmovie(myurlseries);
-        }
+		if(radiomovies.checked)
+		{
+			findmovie(myurlmovies);
+		}
+		else if(radioserie.checked)
+		{
+			findmovie(myurlseries);
+		}
 	}
 
 	if(myinput.value != '')
 	{
 		mypopularbody.style.display = 'none';
-        myindexpage.style.display = 'block';
+		myindexpage.style.display = 'block';
 	}
 	else 
 	{
 		mypopularbody.style.display = 'inline-block';
-        myindexpage.style.display = 'none';
+		myindexpage.style.display = 'none';
 	}
 });
 
@@ -70,16 +77,16 @@ const findmovie = (url) =>
 			return response.json();
 		})
 		.then((transformation) =>{
-            console.log(transformation);
-            refreshlist();
-            if(radiomovies.checked)
-            {
-                addlistmovie(transformation);
-            }
-            else 
-            {
-                addlistserie(transformation);
-            }
+			console.log(transformation);
+			refreshlist();
+			if(radiomovies.checked)
+			{
+				addlistmovie(transformation);
+			}
+			else 
+			{
+				addlistserie(transformation);
+			}
 		});
 };
 
@@ -90,26 +97,26 @@ const popularmovies = (url) =>
 			return response.json();
 		})
 		.then((transformation) => {
-            console.log(transformation);
-            addpopularmovie(transformation);
+			console.log(transformation);
+			addpopularmovie(transformation);
 		});
 };
 
 radiomovies.addEventListener('click', () => {
-    mytxtcarou.innerText = 'Films Populaires :'
-    for (let i = mypopularlist.children.length -1; i >= 0 ; i--) {
-        mypopularlist.removeChild(mypopularlist.children[i]);
-    }
-    popularmovies(myurlpopularmovie);
-})
+	mytxtcarou.innerText = 'Films Populaires :';
+	for (let i = mypopularlist.children.length -1; i >= 0 ; i--) {
+		mypopularlist.removeChild(mypopularlist.children[i]);
+	}
+	popularmovies(myurlpopularmovie);
+});
 
 radioserie.addEventListener('click', () => {
-    mytxtcarou.innerText = 'Séries Populaires :'
-    for (let i = mypopularlist.children.length -1; i >= 0 ; i--) {
-        mypopularlist.removeChild(mypopularlist.children[i]);
-    }
-    popularmovies(myurlpopularseries);
-})
+	mytxtcarou.innerText = 'Séries Populaires :';
+	for (let i = mypopularlist.children.length -1; i >= 0 ; i--) {
+		mypopularlist.removeChild(mypopularlist.children[i]);
+	}
+	popularmovies(myurlpopularseries);
+});
 
 popularmovies(myurlpopularmovie);
 
@@ -130,29 +137,34 @@ const addlistmovie = (myjson) =>
 	{
 		let myjsonsliced = myjson.results.slice(0, 3);
 		for (let i = 0; i < myjsonsliced.length; i++) {
-            if(myjson.results[i].poster_path != null)
+			if(myjson.results[i].poster_path != null)
 			{
-			    let mytitle = document.createElement('div');
-			    mytitle.innerHTML = `<a id='${myjsonsliced[i].id}' href="produit.html"><img id='${myjsonsliced[i].id}' alt="" src="https://image.tmdb.org/t/p/original/${myjsonsliced[i].poster_path}"></img> <p id='${myjsonsliced[i].id}'>${myjsonsliced[i].title}</p></a>`;
-                movielist.append(mytitle);
-            }
+				let mytitle = document.createElement('div');
+				mytitle.innerHTML = `<a id='${myjsonsliced[i].id}' href="produit.html"><img id='${myjsonsliced[i].id}' alt="" src="https://image.tmdb.org/t/p/original/${myjsonsliced[i].poster_path}"></img> <p id='${myjsonsliced[i].id}'>${myjsonsliced[i].title}</p></a>`;
+				movielist.append(mytitle);
+			}
 		}
 
 		for (let i = 0; i < myjson.results.length; i++) {
 			if(myjson.results[i].poster_path != null)
 			{
-                let daterel = myjson.results[i].release_date.slice(0,4);
-				let mymovies = document.createElement('a');
+				let daterel = myjson.results[i].release_date.slice(0,4);
+				let mymovies = document.createElement('div');
+				let mymoviesa = document.createElement('a');
+				mymovies.classList.add('div-movie-link');
+				mymoviesa.classList.add('my-links-movies');
 				mymovies.classList.add('col-12');
 				mymovies.classList.add('col-sm-4');
 				mymovies.classList.add('col-md-3');
 				mymovies.classList.add('col-lg-2');
-				mymovies.href = 'produit.html';
+				mymoviesa.href = 'produit.html';
+				mymoviesa.id = myjson.results[i].id;
 				mymovies.style.backgroundImage = `URL('https://image.tmdb.org/t/p/original/${myjson.results[i].poster_path}')`;
-				mymovies.innerHTML = `<span id='${myjson.results[i].id}'><div id='${myjson.results[i].id}'><h1 id='${myjson.results[i].id}'>${myjson.results[i].title}(${daterel})</h1></div></span>`;
+				mymovies.innerHTML = `<div><h1>${myjson.results[i].title}(${daterel})</h1></div>`;
+				mymovies.append(mymoviesa);
 				bodymovie.append(mymovies);
 			}
-        }
+		}
 	}
 	else if(myjson.results.length <= 0)
 	{
@@ -162,18 +174,7 @@ const addlistmovie = (myjson) =>
 		mytitle.innerHTML = '<p>Aucun resultats trouvés...</p>';
 		movielist.append(mytitle);
 		bodymovie.append(mytitle);
-    }
-    if(p1)
-{
-    for (let i = 0; i < bodymovie.children.length; i++) 
-            {
-                if(i >= 5)
-                {
-                    const elements1 = bodymovie.children[i];
-                    elements1.style.display = 'none';
-                }
-            }
-}
+	}
 };
 
 const addlistserie = (myjson) =>
@@ -184,29 +185,37 @@ const addlistserie = (myjson) =>
 	{
 		let myjsonsliced = myjson.results.slice(0, 3);
 		for (let i = 0; i < myjsonsliced.length; i++) {
-            if(myjson.results[i].poster_path != null)
+			if(myjson.results[i].poster_path != null)for (let i = movielist.children.length -1; i >= 0 ; i--) 
 			{
-			    let mytitle = document.createElement('div');
-			    mytitle.innerHTML = `<a id='${myjsonsliced[i].id}' href="produit.html"><img id='${myjsonsliced[i].id}' alt="" src="https://image.tmdb.org/t/p/original/${myjsonsliced[i].poster_path}"></img> <p id='${myjsonsliced[i].id}'>${myjsonsliced[i].name}</p></a>`;
-                movielist.append(mytitle);
-            }
+				movielist.removeChild(movielist.children[i]);
+			}
+			{
+				let mytitle = document.createElement('div');
+				mytitle.innerHTML = `<a id='${myjsonsliced[i].id}' href="produit.html"><img id='${myjsonsliced[i].id}' alt="" src="https://image.tmdb.org/t/p/original/${myjsonsliced[i].poster_path}"></img> <p id='${myjsonsliced[i].id}'>${myjsonsliced[i].name}</p></a>`;
+				movielist.append(mytitle);
+			}
 		}
 
 		for (let i = 0; i < myjson.results.length; i++) {
 			if(myjson.results[i].poster_path != null)
 			{
-                let daterel = myjson.results[i].first_air_date.slice(0,4);
-				let myserie = document.createElement('a');
-				myserie.classList.add('col-12');
-				myserie.classList.add('col-sm-4');
-				myserie.classList.add('col-md-3');
-				myserie.classList.add('col-lg-2');
-				myserie.href = 'produit.html';
-				myserie.style.backgroundImage = `URL('https://image.tmdb.org/t/p/original/${myjson.results[i].poster_path}')`;
-				myserie.innerHTML = `<span id='${myjson.results[i].id}'><div id='${myjson.results[i].id}'><h1 id='${myjson.results[i].id}'>${myjson.results[i].name}(${daterel})</h1></div></span>`;
-				bodymovie.append(myserie);     
-            }
-        }
+				let daterel = myjson.results[i].first_air_date.slice(0,4);
+				let myseries = document.createElement('div');
+				let myseriesa = document.createElement('a');
+				myseries.classList.add('div-movie-link');
+				myseriesa.classList.add('my-links-movies');
+				myseries.classList.add('col-12');
+				myseries.classList.add('col-sm-4');
+				myseries.classList.add('col-md-3');
+				myseries.classList.add('col-lg-2');
+				myseriesa.href = 'produit.html';
+				myseriesa.id = myjson.results[i].id;
+				myseries.style.backgroundImage = `URL('https://image.tmdb.org/t/p/original/${myjson.results[i].poster_path}')`;
+				myseries.innerHTML = `<div><h1>${myjson.results[i].name}(${daterel})</h1></div>`;
+				myseries.append(myseriesa);
+				bodymovie.append(myseries);  
+			}
+		}
 	}
 	else if(myjson.results.length <= 0)
 	{
@@ -216,18 +225,7 @@ const addlistserie = (myjson) =>
 		mytitle.innerHTML = '<p>Aucun resultats trouvés...</p>';
 		movielist.append(mytitle);
 		bodymovie.append(mytitle);
-    }
-    if(p1)
-{
-    for (let i = 0; i < bodymovie.children.length; i++) 
-            {
-                if(i >= 5)
-                {
-                    const elements1 = bodymovie.children[i];
-                    elements1.style.display = 'none';
-                }
-            }
-}
+	}
 };
 
 const refreshlist = () => 
@@ -255,63 +253,52 @@ document.addEventListener('click', e => {
 
 });
 
-let mybtnpge1 = document.getElementById('btn-page1');
-let mybtnpge2 = document.getElementById('btn-page2');
-let mybtnpge3 = document.getElementById('btn-page3');
-let mybtnpge4 = document.getElementById('btn-page4');
-
-let p1 = true;
+let mybtnpge1 = document.getElementById('btn-page-Up');
+let mybtnpge2 = document.getElementById('btn-page-Down');
 
 mybtnpge1.addEventListener('click', () => {
-    for (let i = 0; i < bodymovie.children.length; i++) 
-            {
-                if(i < 5)
-                {
-                    const elements1 = bodymovie.children[i];
-                    elements1.style.display = 'inline';
-                }
-                else 
-                {
-                    bodymovie.children[i].style.display = 'none';
-                }
-            }
-})
+
+	pagenumber ++;
+        
+	if(radiomovies.checked)
+	{
+		let myurlmovies = `https://api.themoviedb.org/3/search/movie?api_key=${mykey}&language=fr&page=${pagenumber}&include_adult=false&query=${myinput.value}`;
+            
+		console.log('film');
+		pagenumbertxt.innerText = pagenumber;
+		findmovie(myurlmovies);
+	}
+	else
+	{
+		let myurlseries = `https://api.themoviedb.org/3/search/tv?api_key=${mykey}&language=fr&page=${pagenumber}&query=${myinput.value}&include_adult=false`;
+            
+		console.log('serie');
+		pagenumbertxt.innerText = pagenumber;
+		findmovie(myurlseries);
+	}
+});
+
 mybtnpge2.addEventListener('click', () => {
-    for (let i = 0; i < bodymovie.children.length; i++) 
-            {
-                if(i >= 5 && i < 10)
-                {
-                    bodymovie.children[i].style.display = 'inline';
-                }
-                else 
-                {
-                    bodymovie.children[i].style.display = 'none';
-                }
-            }
-})
-mybtnpge3.addEventListener('click', () => {
-    for (let i = 0; i < bodymovie.children.length; i++) 
-            {
-                if(i >= 10 && i < 15)
-                {
-                    bodymovie.children[i].style.display = 'inline';
-                }
-                else 
-                {
-                    bodymovie.children[i].style.display = 'none';
-                }
-            }
-})
-mybtnpge4.addEventListener('click', () => {
-    for (let i = 0; i < bodymovie.children.length; i++) 
-            {
-                if(i >= 15 && i <= bodymovie.children.length)
-                {
-                    bodymovie.children[i].style.display = 'inline';
-                }
-                else 
-                {
-                    bodymovie.children[i].style.display = 'none';
-                }
-            }
-})
+
+	pagenumber--;
+	if(pagenumber === 0)
+	{
+		pagenumber = 1;
+	}
+	if(radiomovies.checked)
+	{
+		let myurlmovies = `https://api.themoviedb.org/3/search/movie?api_key=${mykey}&language=fr&page=${pagenumber}&include_adult=false&query=${myinput.value}`;
+        
+		console.log('film');
+		pagenumbertxt.innerText = pagenumber;
+		findmovie(myurlmovies);
+	}
+	else
+	{
+		let myurlseries = `https://api.themoviedb.org/3/search/tv?api_key=${mykey}&language=fr&page=${pagenumber}&query=${myinput.value}&include_adult=false`;
+        
+		console.log('serie');
+		pagenumbertxt.innerText = pagenumber;
+		findmovie(myurlseries);
+	}
+});

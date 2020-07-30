@@ -48,10 +48,27 @@
 
     <nav id="my-page-index" class="mt-5" aria-label="..." style="display: none;">
         <div class="my-page d-flex align-items-center justify-content-center">
-          <button id="btn-page1" class="">1</button>
-          <button id="btn-page2" class="">2</button>
-          <button id="btn-page3" class="">3</button>
-          <button id="btn-page4" class="">4</button>
+          <button id="btn-page-Down" class=""><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 350 100">
+            <defs>
+              <marker id="arrowhead" markerWidth="10" markerHeight="7" 
+              refX="0" refY="3.5" orient="auto">
+                <polygon points="0 0, 10 3.5, 0 7" />
+              </marker>
+            </defs>
+            <line x1="0" y1="50" x2="250" y2="50" stroke="#000" 
+            stroke-width="8" marker-end="url(#arrowhead)" /></svg>
+        </button>
+          <p id="page-number" class="mx-5"> 1 </p>
+          <button id="btn-page-Up" class=""> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 350 100">
+            <defs>
+              <marker id="arrowhead" markerWidth="10" markerHeight="7" 
+              refX="0" refY="3.5" orient="auto">
+                <polygon points="0 0, 10 3.5, 0 7" />
+              </marker>
+            </defs>
+            <line x1="0" y1="50" x2="250" y2="50" stroke="#000" 
+            stroke-width="8" marker-end="url(#arrowhead)" /></svg>
+          </button>
         </div>
       </nav>
     
