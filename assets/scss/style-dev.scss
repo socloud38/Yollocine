@@ -318,7 +318,6 @@ body {
   background-size: cover;
   #my-img-div {
     position: relative;
-    transition: 1s;
   }
 
   .my-card {
@@ -328,6 +327,7 @@ body {
     border-radius: 24px;
     border: 2px solid black;
     box-shadow: 0 0 7px 7px rgba(0, 0, 0, 0.5);
+    transition: 1s;
 
     &:hover {
       cursor: pointer;

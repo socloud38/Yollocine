@@ -4,6 +4,7 @@ let mybodytxt = document.getElementById('body-txt');
 let mytxtdiv = document.getElementById('my-txt-div');
 
 let myimgdiv = document.getElementById('my-img-div');
+let mycardimg = document.getElementById('card-img');
 
 let mynavtitle = document.getElementById('my-nav-title');
 
@@ -138,11 +139,11 @@ myimg.addEventListener('click', () => {
 	myimgdiv.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
 	myimgdiv.classList.remove('col-12');
 	myimgdiv.classList.remove('col-md-6');
-	myimgdiv.style.transform = ('scale(2)');
+	mycardimg.style.transform = ('scale(2)');
 
 	setTimeout( () => {
 		imgbool = true;
-	}, 500)
+	}, 100)
 
 	document.addEventListener('click', e => {
 		if(imgbool === true)
@@ -154,7 +155,7 @@ myimg.addEventListener('click', () => {
 				myimgdiv.style.backgroundColor = '';
 				myimgdiv.classList.add('col-12');
 				myimgdiv.classList.add('col-md-6');
-				myimgdiv.style.transform = ('scale(1)');
+				mycardimg.style.transform = ('scale(1)');
 				imgbool = false;
 			}
 		}
