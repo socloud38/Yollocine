@@ -55,7 +55,8 @@ else if(mystyle === 'false')
 const myformat = (mydate) => {
 	let mymonths = [null,'Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'];
 	let myday = mydate.slice(-2);
-    let mymonth = mydate.slice(6,7);
+	let mymonth = mydate.slice(5,7);
+	parseInt(mymonth);
 	mymonth = mymonths[mymonth];
 	let myyear = mydate.slice(0,4);
 	let mynewdate = `${myday} ${mymonth} ${myyear}`;
@@ -139,7 +140,7 @@ myimg.addEventListener('click', () => {
 	myimgdiv.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
 	myimgdiv.classList.remove('col-12');
 	myimgdiv.classList.remove('col-md-6');
-	mycardimg.style.transform = ('scale(2)');
+	mycardimg.style.transform = ('scale(1.3)');
 
 	setTimeout( () => {
 		imgbool = true;
