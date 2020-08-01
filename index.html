@@ -15,20 +15,23 @@
         <div class="" tabindex="0">
             <h1 class="my-title">YolloCiné</h1>
         </div>
+        <form class="radio-options">
+          <div class="my-linear-border">
+              <input type="radio" name="choix" id="radio-movies" value="movies" checked>
+              <label for="movies">Movies</label>
+          </div>
+          <div class="my-linear-border">
+              <input type="radio" name="choix" id="radio-series" value="series">
+              <label for="series">Séries</label>
+          </div>
+        </form>
         <div class="my-div-rela">
+          <div class="my-linear-border">
             <input id="my-input" class="uk-input" type="text" placeholder="Recherche...">
+          </div>
             <div id="my-movie-list" class="movie-list"></div>
-            <form class="radio-options">
-                <div>
-                    <input type="radio" name="choix" id="radio-movies" value="movies" checked>
-                    <label for="movies">Movies</label>
-                </div>
-                <div>
-                    <input type="radio" name="choix" id="radio-series" value="series">
-                    <label for="series">Séries</label>
-                </div>
-            </form>
         </div>
+        <div class="separate-style"></div>
     </header>
 
     <!--caroussel-->

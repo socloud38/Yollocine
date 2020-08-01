@@ -18,9 +18,8 @@ body {
 
 //css header
 .my-header {
-  padding: 50px 50px 0 50px;
-  color: black;
-  background-image: url('../imgs/Textures2.webp');
+  padding-top: 50px;
+  background-image: $primarybrown;
   background-position: center;
   background-size: cover;
 }
@@ -29,30 +28,56 @@ body {
 .my-title {
   font-size: 90px;
   font-weight: bold;
+  color: $primarybrown;
+  animation: neon 0.8s  ease-in-out infinite alternate;
 }
 
 //css my search input
-#my-input {
+.my-linear-border
+{
   transition: 0.7s;
   width: 100%;
-  text-align: center;
-  color: $white;
-  background-color: $primarybrown;
-  border: 2px solid $white;
-  border-radius: 30px;
+  height: 40px;
+  margin: 20px 0;
+  padding: 2px;
+  background-color: $white;
+  border-radius: 15px;
+  animation: neonborder 0.8s  ease-in-out infinite alternate;
 
   &:hover {
-    background-color: $secondarybrown;
+    transform: scale(1.2);
   }
 
-  &:focus {
-    background-color: $brown3;
-  }
-
-  &::placeholder {
+  input {
+    transition: 0.7s;
+    width: 100%;
+    height: 100%;
+    text-align: center;
     color: $white;
+    background-color: $primarybrown;
+    border: none;
+    border-radius: 15px;
+    animation: neon 0.8s  ease-in-out infinite alternate;
+
+    &:hover {
+      transform: scale(1);
+    }
+
+    &::placeholder {
+      color: $white;
+    }
   }
 }
+
+.separate-style
+    {
+      width: 100%;
+      height: 2px;
+      margin-top: 60px;
+      background: linear-gradient(to right, red, orange);
+      animation: hrstyle 0.8s linear infinite;
+    }
+
 
 .my-div-rela {
   width: 350px;
@@ -84,7 +109,7 @@ body {
 .movie-list {
   position: absolute;
   left: 0;
-  top: 2.5rem;
+  top: 4.5rem;
   z-index: 1;
   width: 100%;
   display: flex;
@@ -323,6 +348,63 @@ body {
   img {
     width: 100%;
     height: 100%;
+  }
+}
+
+//keyframes
+
+@keyframes neon {
+  from {
+    text-shadow:
+    0 0 6px rgba(202,228,225,0.92),
+    0 0 30px rgba(202,228,225,0.34),
+    0 0 12px rgba(242, 30, 30, 0.52),
+    0 0 21px rgba(242, 30, 30, 0.92),
+    0 0 34px rgba(242, 30, 30, 0.78),
+    0 0 54px rgba(242, 30, 30, 0.92);
+  }
+  to {
+    text-shadow:
+    0 0 6px rgba(202,228,225,0.98),
+    0 0 30px rgba(202,228,225,0.42),
+    0 0 12px rgba(242, 30, 30, 0.58),
+    0 0 22px rgba(242, 30, 30, 0.84),
+    0 0 38px rgba(242, 30, 30, 0.88),
+    0 0 60px rgb(242, 30, 30);
+  }
+}
+
+@keyframes neonborder {
+  from {
+    box-shadow:
+    0 0 3px rgba(202,228,225,0.92),
+    0 0 15px rgba(202,228,225,0.34),
+    0 0 6px rgba(242, 30, 30, 0.52),
+    0 0 10.5px rgba(242, 30, 30, 0.92),
+    0 0 17px rgba(242, 30, 30, 0.78),
+    0 0 27px rgba(242, 30, 30, 0.92);
+  }
+  to {
+    box-shadow:
+    0 0 3px rgba(202,228,225,0.98),
+    0 0 15px rgba(202,228,225,0.42),
+    0 0 6px rgba(242, 30, 30, 0.58),
+    0 0 11px rgba(242, 30, 30, 0.84),
+    0 0 19px rgba(242, 30, 30, 0.88),
+    0 0 30px rgb(242, 30, 30);
+  }
+}
+
+@keyframes hrstyle 
+{
+  0% {
+    background: linear-gradient(to right, red, orange, yellow);
+  }
+  50% {
+    background: linear-gradient(to right,yellow,red, orange);
+  }
+  100% {
+    background: linear-gradient(to right, orange,yellow, red);
   }
 }
   
