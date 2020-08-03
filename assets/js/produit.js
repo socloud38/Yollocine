@@ -1,5 +1,9 @@
 import {mykey} from '../../key.js';
 
+//metavar
+let metatitle = document.querySelectorAll('.meta-title');
+let metadescr = document.querySelectorAll('.meta-descr');
+
 let mybodytxt = document.getElementById('body-txt');
 let mytxtdiv = document.getElementById('my-txt-div');
 
@@ -56,8 +60,7 @@ const myformat = (mydate) => {
 	let mymonths = [null,'Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'];
 	let myday = mydate.slice(-2);
 	let mymonth = mydate.slice(5,7);
-	parseInt(mymonth);
-	mymonth = mymonths[mymonth];
+	mymonth = mymonths[parseInt(mymonth)];
 	let myyear = mydate.slice(0,4);
 	let mynewdate = `${myday} ${mymonth} ${myyear}`;
 	return mynewdate;
@@ -101,6 +104,15 @@ const datamanagemovies = (myjson) => {
 	}
 	myresume.style.fontSize = '16px';
 	myruntime.innerHTML = `Durée : <b>${myformath(myjson.runtime)}</b>`;
+
+	//meta
+	console.log(myjson.overview.slice(0, 100));
+	for (let i = 0; i < metatitle.length; i++) {
+
+		metatitle[i].content = myjson.original_title;
+		metadescr[i].content = myjson.overview.slice(0, 100);
+
+	}
 };
 
 const datamanageseries = (myjson) => {

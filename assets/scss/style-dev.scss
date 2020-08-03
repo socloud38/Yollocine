@@ -35,7 +35,7 @@ body {
 //css my search input
 .my-linear-border
 {
-  transition: 0.7s;
+  transition: 0.5s;
   width: 100%;
   height: 40px;
   margin: 20px 0;
@@ -49,12 +49,12 @@ body {
   }
 
   input {
-    transition: 0.7s;
+    transition: 0.5s;
     width: 100%;
     height: 100%;
     text-align: center;
     color: $white;
-    background-color: $primarybrown;
+    background-color: $black;
     border: none;
     border-radius: 15px;
     animation: neon 0.8s  ease-in-out infinite alternate;
@@ -156,13 +156,13 @@ body {
   align-items: center;
   justify-content: space-between;
 
-  input {
-    margin-left: 10px;
-  }
-
   label {
     margin: 0 0 0 5px;
     color: $white;
+  }
+  
+  input {
+    margin-left: 10px;
   }
 }
 

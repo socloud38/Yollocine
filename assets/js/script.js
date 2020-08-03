@@ -150,6 +150,7 @@ const addlistmovie = (myjson) =>
 			{
 				let daterel = myjson.results[i].release_date.slice(0,4);
 				let mymovies = document.createElement('div');
+				mymovies.itemtype=("http://schema.org/Movie");
 				let mymoviesa = document.createElement('a');
 				mymovies.classList.add('div-movie-link');
 				mymoviesa.classList.add('my-links-movies');
@@ -160,7 +161,7 @@ const addlistmovie = (myjson) =>
 				mymoviesa.href = 'produit.html';
 				mymoviesa.id = myjson.results[i].id;
 				mymovies.style.backgroundImage = `URL('https://image.tmdb.org/t/p/original/${myjson.results[i].poster_path}')`;
-				mymovies.innerHTML = `<div><h1>${myjson.results[i].title}(${daterel})</h1></div>`;
+				mymovies.innerHTML = `<div><h1>${myjson.results[i].title} (${daterel})</h1></div>`;
 				mymovies.append(mymoviesa);
 				bodymovie.append(mymovies);
 			}
@@ -211,7 +212,7 @@ const addlistserie = (myjson) =>
 				myseriesa.href = 'produit.html';
 				myseriesa.id = myjson.results[i].id;
 				myseries.style.backgroundImage = `URL('https://image.tmdb.org/t/p/original/${myjson.results[i].poster_path}')`;
-				myseries.innerHTML = `<div><h1>${myjson.results[i].name}(${daterel})</h1></div>`;
+				myseries.innerHTML = `<div><h1>${myjson.results[i].name} (${daterel})</h1></div>`;
 				myseries.append(myseriesa);
 				bodymovie.append(myseries);  
 			}
@@ -259,6 +260,10 @@ let mybtnpge2 = document.getElementById('btn-page-Down');
 mybtnpge1.addEventListener('click', () => {
 
 	pagenumber ++;
+	if(pagenumber >= 1000)
+	{
+		pagenumber = 999;
+	}
         
 	if(radiomovies.checked)
 	{
