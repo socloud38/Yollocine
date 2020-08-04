@@ -9912,17 +9912,32 @@ h3 {
   }
 }
 html {
-  background-color: black;
+  background-color: var(--dark);
 }
 
 body {
-  background-color: black;
+  background-color: var(--dark);
   font-family: "Montserrat", sans-serif;
+}
+
+.btn-neon {
+  width: 60px;
+  height: 60px;
+  border: none;
+  background-color: rgba(242, 30, 30, 0.84);
+  border-radius: 100%;
+  animation: neonborder 0.5s ease-in-out infinite alternate;
+}
+.btn-neon:hover {
+  background-color: rgba(242, 30, 30, 0.58);
+}
+.btn-neon img {
+  width: 40px;
 }
 
 .my-header {
   padding-top: 50px;
-  background-image: black;
+  background-image: var(--dark);
   background-position: center;
   background-size: cover;
 }
@@ -9930,7 +9945,23 @@ body {
 .my-title {
   font-size: 90px;
   font-weight: bold;
-  color: black;
+  color: var(--dark);
+  animation: neon 0.8s ease-in-out infinite alternate;
+  user-select: none;
+}
+.my-title:hover {
+  color: white;
+  cursor: pointer;
+}
+
+label {
+  color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+}
+
+.neon-text {
+  font-size: 30px;
+  color: white;
   animation: neon 0.8s ease-in-out infinite alternate;
 }
 
@@ -9953,13 +9984,19 @@ body {
   height: 100%;
   text-align: center;
   color: white;
-  background-color: #000;
+  background-color: var(--dark);
   border: none;
   border-radius: 15px;
   animation: neon 0.8s ease-in-out infinite alternate;
 }
 .my-linear-border input:hover {
   transform: scale(1);
+  background-color: rgba(0, 0, 0, 0.9);
+  color: white;
+}
+.my-linear-border input:focus {
+  background-color: rgba(0, 0, 0, 0.9);
+  color: white;
 }
 .my-linear-border input::placeholder {
   color: white;
@@ -9968,9 +10005,9 @@ body {
 .separate-style {
   width: 100%;
   height: 2px;
-  margin-top: 60px;
-  background: linear-gradient(to right, red, orange);
-  animation: hrstyle 0.8s linear infinite;
+  margin: 30px 0;
+  background: linear-gradient(to right, #ff6600, red, #ff6600);
+  animation: neonborder 0.5s linear infinite;
 }
 
 .my-div-rela {
@@ -9990,7 +10027,7 @@ body {
   height: 48px;
   background-color: rgba(255, 255, 255, 0.5);
   border-radius: 100%;
-  color: black;
+  color: var(--dark);
 }
 
 .movie-list {
@@ -10008,7 +10045,7 @@ body {
   width: 100%;
   margin: 0;
   color: white;
-  background-color: black;
+  background-color: var(--dark);
   border-bottom: 1px solid black;
   border-right: 1px solid black;
   border-left: 1px solid black;
@@ -10039,18 +10076,8 @@ body {
   align-items: center;
   justify-content: space-between;
 }
-.radio-options label {
-  margin: 0 0 0 5px;
-  color: white;
-}
 .radio-options input {
-  margin-left: 10px;
-}
-
-.my-h2 {
-  margin-top: 0;
-  font-size: 50px;
-  color: white;
+  display: none;
 }
 
 .movietxt {
@@ -10089,7 +10116,7 @@ body {
 #body-movies {
   width: 100%;
   margin-top: 5px;
-  background-color: black;
+  background-color: var(--dark);
   display: flex;
   justify-content: center;
 }
@@ -10111,7 +10138,7 @@ body {
   margin-right: 20px;
   display: flex;
   align-items: center;
-  border: 2px solid black;
+  border: 2px solid var(--dark);
   border-bottom-left-radius: 30px;
   border-bottom-right-radius: 30px;
   color: white;
@@ -10140,7 +10167,7 @@ body {
   position: absolute;
   left: 0;
   top: 0;
-  background-color: black;
+  background-color: var(--dark);
 }
 #body-movies .div-movie-link div h1 {
   text-align: center;
@@ -10160,7 +10187,7 @@ body {
   align-items: center;
   justify-content: center;
   padding: 70px 0;
-  background-color: black;
+  background-color: var(--dark);
 }
 
 .my-page #btn-page-Down {
@@ -10218,17 +10245,6 @@ body {
   }
   to {
     box-shadow: 0 0 3px rgba(202, 228, 225, 0.98), 0 0 15px rgba(202, 228, 225, 0.42), 0 0 6px rgba(242, 30, 30, 0.58), 0 0 11px rgba(242, 30, 30, 0.84), 0 0 19px rgba(242, 30, 30, 0.88), 0 0 30px #f21e1e;
-  }
-}
-@keyframes hrstyle {
-  0% {
-    background: linear-gradient(to right, red, orange, yellow);
-  }
-  50% {
-    background: linear-gradient(to right, yellow, red, orange);
-  }
-  100% {
-    background: linear-gradient(to right, orange, yellow, red);
   }
 }
 

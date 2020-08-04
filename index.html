@@ -29,16 +29,17 @@
     </head>
 <body>
     <!--header-->
+    <button id="my-btn-mode" class="btn-neon"><img src="assets/imgs/sun.png" alt="""></button>
     <header class="uk-flex uk-flex-column uk-flex-middle my-header">
         <div class="" tabindex="0">
-            <h1 class="my-title">YolloCiné</h1>
+            <h1 id="my-reload-logo" class="my-title">YolloCiné</h1>
         </div>
         <form class="radio-options">
-          <label for="movies">
+          <label id="labelmovie" class="neon-text" for="movies">
               <input type="radio" name="choix" id="radio-movies" value="movies" checked>
-              Movies
+              Films
           </label>
-          <label for="series">
+          <label id="labelserie" for="series">
               <input type="radio" name="choix" id="radio-series" value="series">
               Séries
           </label>
@@ -55,7 +56,7 @@
     <!--caroussel-->
     
     <div id="my-popular-body" class="my-carou uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider>
-        <h2 id="carou-txt" class="uk-text-center my-h2">Films Populaires :</h2>
+        <h2 id="carou-txt" class="uk-text-center neon-text mt-3">Films Populaires :</h2>
         <ul itemtype="http://schema.org/Movie" id="my-popular-list" class="uk-slider-items uk-child-width-1-2 uk-child-width-1-3@s uk-child-width-1-4@m"></ul>
     
         <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>

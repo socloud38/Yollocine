@@ -2,7 +2,10 @@
 import {mykey} from '../../key.js';
 
 //mes variables getID
-
+//var de mon title qui vide l'input et checked le radio film au click
+let myreloadtitle = document.getElementById('my-reload-logo');
+//var btn mode light/dark
+let mymodebtn = document.getElementById('my-btn-mode');
 //input
 let myinput = document.getElementById('my-input');
 //div movielist (list déroulante en dessous de l'input)
@@ -19,6 +22,10 @@ let myindexpage = document.getElementById('my-page-index');
 let radiomovies = document.getElementById('radio-movies');
 //input radio movie
 let radioserie = document.getElementById('radio-series');
+//label radio input film
+let mylabelmovie = document.getElementById('labelmovie');
+//label radio serie
+let mylabelserie = document.getElementById('labelserie');
 //text au dessus du carroussel
 let mytxtcarou = document.getElementById('carou-txt');
 //text pagination
@@ -28,10 +35,95 @@ let pagenumber = 1;
 //boolean si film(true) ou series(false)
 let movies = true;
 
+myreloadtitle.addEventListener('click', () => {
+	//refresh la list et le body
+	refreshlist();
+	//refresh l'input
+	myinput.value = '';
+	//check le radio movie
+	radiomovies.checked = true;
+	//ajout class css neon
+	mylabelmovie.classList.add('neon-text');
+	mylabelserie.classList.remove('neon-text');
+	//actualise le txt au dessus du carrou
+	mytxtcarou.innerText = 'Films Populaires :';
+	//supprime les carrou actuel
+	for (let i = mypopularlist.children.length -1; i >= 0 ; i--) {
+		mypopularlist.removeChild(mypopularlist.children[i]);
+	}
+	//ajoute les nouveau carrou (mise a jour des images)
+	popularmovies(myurlpopularmovie);
+	//initialisation de la page 1
+	pagenumber = 1;
+	//écrire le numéro de page dans le txt
+	pagenumbertxt.innerText = pagenumber;
+	
+	//fais disparaitre le carroussel si l'input n'est pas vide
+	//et les bouton pagination si il est vide
+	if(myinput.value != '')
+	{
+		mypopularbody.style.display = 'none';
+		myindexpage.style.display = 'block';
+	}
+	else 
+	{
+		mypopularbody.style.display = 'inline-block';
+		myindexpage.style.display = 'none';
+	}
+})
+
+//variable qui dis si mode dark ou light
+let dark = true;
+let root = document.documentElement;
+let mylightcolor = '#5c646b';
+let mydarkcolor = '#000000';
+
+root.style.setProperty('--dark', mydarkcolor);
+//event au click du btn dark&light
+mymodebtn.addEventListener('click', () => {
+	if(dark) {
+		root.style.setProperty('--dark', mylightcolor);
+		dark = false;
+	}
+	else if(dark === false) {
+		root.style.setProperty('--dark', mydarkcolor);
+		dark = true;
+	}
+})
+
+mylabelmovie.addEventListener('click', () => {
+	radiomovies.checked = true;
+	//ajout class css neon
+	mylabelmovie.classList.add('neon-text');
+	mylabelserie.classList.remove('neon-text');
+	//actualise le txt au dessus du carrou
+	mytxtcarou.innerText = 'Films Populaires :';
+	//supprime les carrou actuel
+	for (let i = mypopularlist.children.length -1; i >= 0 ; i--) {
+		mypopularlist.removeChild(mypopularlist.children[i]);
+	}
+	//ajoute les nouveau carrou (mise a jour des images)
+	popularmovies(myurlpopularmovie);
+})
+
+mylabelserie.addEventListener('click', () => {
+	radioserie.checked = true;
+	//ajout class css neon
+	mylabelserie.classList.add('neon-text');
+	mylabelmovie.classList.remove('neon-text');
+	//mise a jour du txt au dessus du carrou
+	mytxtcarou.innerText = 'Séries Populaires :';
+	//supprime le carrou actuel (films)
+	for (let i = mypopularlist.children.length -1; i >= 0 ; i--) {
+		mypopularlist.removeChild(mypopularlist.children[i]);
+	}
+	//mise a jour des imgs du carrou
+	popularmovies(myurlpopularseries);
+})
+
 //event au click sur le document (içi pour récuperer l'ID au click et le stocker)
 document.addEventListener('click', e => {
 	localStorage.setItem('id', e.target.id);
-	console.log(e.target.id);
 
 	//si film ou serie
 	if(radioserie.checked)
@@ -109,7 +201,6 @@ const findmovie = (url) =>
 		})
 		//then du JSON
 		.then((transformation) =>{
-			console.log(transformation);
 			//refresh ma list deroulante
 			refreshlist();
 			//check si film ou séries
@@ -136,7 +227,6 @@ const popularmovies = (url) =>
 		})
 		//then
 		.then((transformation) => {
-			console.log(transformation);
 			//add les bonne img dans le carrou
 			addpopularmovie(transformation);
 		});

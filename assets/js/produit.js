@@ -51,7 +51,6 @@ const findid = (url) =>
 		})
 		//then
 		.then((transformation) =>{
-			console.log(transformation);
 			//determine si films ou série 
 			if(mystyle === 'true')
 			{
@@ -267,7 +266,6 @@ myimg.addEventListener('click', () => {
 		//si l'image peut etre dezoomé
 		if(imgbool === true)
 		{
-			console.log(e.target.id);
 			//si l'user click partout sauf sur l'image celle ci ce dezoom
 			if(e.target.id != 'my-img');
 			{
