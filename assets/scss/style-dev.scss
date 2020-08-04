@@ -1,25 +1,31 @@
+//import UIkit
 @import '../../node_modules/uikit/dist/css/uikit.css';
+//import Bootstrap
 @import '../../node_modules/bootstrap/scss/bootstrap.scss';
+//import de ma police utilisée
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
 
+//var blanc
 $white: white;
-$primarybrown: black;
-$secondarybrown: rgba(255, 255, 255, 0.2);
-$brown3: rgba(255, 255, 255, 0.3);
+//var noire
+$black: black;
+//var gris opacity 0.3
+$greyopacity2: rgba(255, 255, 255, 0.3);
 
+//couleur de ma page HTML en noire
 html {
-  background-color: $primarybrown;
+  background-color: $black;
 }
-
+//mon body en noir avec la police choisis
 body {
-  background-color: $primarybrown;
+  background-color: $black;
   font-family: 'Montserrat', sans-serif;
 }
 
 //css header
 .my-header {
   padding-top: 50px;
-  background-image: $primarybrown;
+  background-image: $black;
   background-position: center;
   background-size: cover;
 }
@@ -28,11 +34,11 @@ body {
 .my-title {
   font-size: 90px;
   font-weight: bold;
-  color: $primarybrown;
+  color: $black;
   animation: neon 0.8s  ease-in-out infinite alternate;
 }
 
-//css my search input
+//css my search input "my linear border" = div qui fais l'animation néon derriere l'input
 .my-linear-border
 {
   transition: 0.5s;
@@ -43,11 +49,11 @@ body {
   background-color: $white;
   border-radius: 15px;
   animation: neonborder 0.8s  ease-in-out infinite alternate;
-
+  //hover de ma div scaling
   &:hover {
     transform: scale(1.2);
   }
-
+  //mon input
   input {
     transition: 0.5s;
     width: 100%;
@@ -58,17 +64,17 @@ body {
     border: none;
     border-radius: 15px;
     animation: neon 0.8s  ease-in-out infinite alternate;
-
+    //hover de mon input
     &:hover {
       transform: scale(1);
     }
-
+    //placeholder de mon input effet néon
     &::placeholder {
       color: $white;
     }
   }
 }
-
+//une div qui me sert a separateur design avec une animation
 .separate-style
     {
       width: 100%;
@@ -78,7 +84,7 @@ body {
       animation: hrstyle 0.8s linear infinite;
     }
 
-
+//div qui sert de parent a ma list
 .my-div-rela {
   width: 350px;
   position: relative;
@@ -86,15 +92,15 @@ body {
 
 //css carou
 .my-carou {
-
+  //effet noir est blanc pour le carou
   img {
     filter: grayscale(100%);
-
+    //hover desactive le noir et blanc
     &:hover {
       filter: none;
     }
   }
-
+  //design des svg de mon carou
   svg {
     padding: 5px;
     width: 48px;
@@ -116,21 +122,21 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
+  //div qui contient chaque films
   div {
     width: 100%;
     margin: 0;
     color: $white;
-    background-color: $primarybrown;
+    background-color: $black;
     border-bottom: 1px solid black;
     border-right: 1px solid black;
     border-left: 1px solid black;
-
+    //img de mes films
     img {
       width: 50px;
       height: 70px;
     }
-
+    //liens vers la page produit de mes films effet noir&blanc
     a {
       width: 100%;
       padding: 10px;
@@ -140,45 +146,45 @@ body {
       text-decoration: none;
       color: $white;
       filter: grayscale(80%);
-
+      //hover desactive l'effet noire&blanc
       &:hover {
-        background-color: $brown3;
+        background-color: $greyopacity2;
         filter: none;
       }
     }
   }
 }
-
+//css de mes input radio
 .radio-options {
   width: 50%;
   margin: 20px auto 20px auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
-
+  //label
   label {
     margin: 0 0 0 5px;
     color: $white;
   }
-  
+  //l'input radio
   input {
     margin-left: 10px;
   }
 }
-
+//css du TXT au dessus du carou
 .my-h2 {
   margin-top: 0;
   font-size: 50px;
   color: $white;
 }
-
+//css page produit text droite
 .movietxt {
   margin-left: 0;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-
+  //text droite
   .txt-div-product
   {
     width: 90%;
@@ -191,33 +197,33 @@ body {
     border-radius: 20px;
 
   }
-
+  //H1
   h1 {
     width: 90%;
     font-size: 50px;
     color: $white;
   }
-
+  //p
   p {
     width: 90%;
     margin-left: 10px;
     color: $white;
   }
-
+  //css du status du film/de la serie
   #status {
     color: green;
     font-size: 20px;
     font-weight: 900;
   }
 }
-
+//body de la recherche des films
 #body-movies {
   width: 100%;
   margin-top: 5px;
-  background-color: $primarybrown;
+  background-color: $black;
   display: flex;
   justify-content: center;
-
+  //css des A de ma recherche de films
   .my-links-movies 
   {
     width: 100%;
@@ -226,7 +232,7 @@ body {
     left: 0;
     top: 0;
   }
-
+  //css de la div qui contiens le film
   .div-movie-link {
     min-width: 250px;
     max-width: 250px;
@@ -238,7 +244,7 @@ body {
     margin-right: 20px;
     display: flex;
     align-items: center;
-    border: 2px solid $primarybrown;
+    border: 2px solid $black;
     border-bottom-left-radius: 30px;
     border-bottom-right-radius: 30px;
     color: $white;
@@ -248,17 +254,17 @@ body {
     background-position: center;
     background-size: cover;
     filter: grayscale(100%);
-
+    //hover effet noir&blanc
     &:hover {
       filter: none;
     }
-
+    //span
     span {
       display: inline-block;
       width: 250px;
       height: 450px;
     }
-
+    //div
     div {
       display: flex;
       align-items: center;
@@ -270,7 +276,7 @@ body {
       left: 0;
       top: 0;
       background-color: black;
-
+      //h1
       h1 {
         text-align: center;
         font-size: 20px;
@@ -278,42 +284,42 @@ body {
       }
     }
   }
-
+  //p
   p {
     margin-left: 15px;
   }
-
+  //img
   img {
     width: 200px;
     height: 300px;
   }
 }
-
+//css de ma pagination
 .my-pagination {
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 70px 0;
-  background-color: $primarybrown;
+  background-color: $black;
 }
-
+//css pagination
 .my-page {
-
+  //btn left pagination
   #btn-page-Down
   {
     transform: rotate(180deg);
   }
-
+  //css des 2 boutons pagination
   button {
     width: 5%;
     border: 1px solid $white;
-
+    //hover
     &:hover
     {
       background-color: rgba(255, 255, 255, 0.3);
     }
   }
-
+  //txt nombre de page
   #page-number 
   {
     margin-top: 10px;
@@ -330,7 +336,7 @@ body {
   #my-img-div {
     position: relative;
   }
-
+  //carte qui contiens l'image du film
   .my-card {
     overflow: hidden;
     width: 280px;
@@ -339,12 +345,12 @@ body {
     border: 2px solid black;
     box-shadow: 0 0 7px 7px rgba(0, 0, 0, 0.5);
     transition: 1s;
-
+    //hover pointer pour montrer l'interaction possible au click
     &:hover {
       cursor: pointer;
     }
   }
-
+  //img size
   img {
     width: 100%;
     height: 100%;
@@ -352,7 +358,7 @@ body {
 }
 
 //keyframes
-
+//néon text-shadow
 @keyframes neon {
   from {
     text-shadow:
@@ -373,7 +379,7 @@ body {
     0 0 60px rgb(242, 30, 30);
   }
 }
-
+//néon box shadow (div derriere l'input)
 @keyframes neonborder {
   from {
     box-shadow:
@@ -394,7 +400,7 @@ body {
     0 0 30px rgb(242, 30, 30);
   }
 }
-
+//animation pour la div qui separe l'input du carou page home
 @keyframes hrstyle 
 {
   0% {
