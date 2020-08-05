@@ -7845,6 +7845,7 @@ label {
 
 .neon-text {
   font-size: 30px;
+  position: relative;
   color: white;
   animation: neon 0.8s  ease-in-out infinite alternate; }
 

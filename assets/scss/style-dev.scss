@@ -77,6 +77,7 @@ label {
 //css ajout de class js neon-text
 .neon-text {
   font-size: 30px;
+  position: relative;
   color: $white;
   animation: neon 0.8s  ease-in-out infinite alternate;
 }
